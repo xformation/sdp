@@ -165,3 +165,84 @@
     }
   }
 }
+
+/********************************* New Styles ************************************/
+
+.navbar-inner {
+  min-height: $navbarHeight;
+  padding-right: $spacer;
+  background: $navbar-background-gradient;
+  border-bottom: $navbarBorder;
+  @include clearfix();
+  .nav-search-container {
+    margin-top: 6px;
+    .nav-search-box {
+      height: 40px;
+      margin: auto;
+      width: 217px;
+      border-radius: 20px;
+      padding-left: 20px;
+      background-color: $navbar-search-box-background-color;
+    }
+    a {
+      margin: 0px 10px;
+      font-size: 18px;
+    }
+  }
+}
+
+.navbar-brand-btn {
+  display: block;
+  position: relative;
+  float: left;
+  margin: 0;
+  min-height: $navbarHeight;
+  width: $side-menu-width;
+  .fa-caret-down {
+    font-size: 70%;
+  }
+  .fa-chevron-left {
+    display: none;
+  }
+  img {
+    width: 30px;
+    position: relative;
+    top: -1px;
+  }
+  .navbar-logo-img {
+    width: 150px;
+    top: 6px;
+    left: 15px;
+  }
+  .nav-caret-down {
+    position: relative;
+    left: 20px;
+    top: 8px;
+  }
+  .icon-gf-grafana_wordmark {
+    font-size: 21px;
+    position: relative;
+    top: 6px;
+    padding-left: 5px;
+    display: none;
+  }
+}
+
+.navbar-brand-btn-small {
+  width: 130px;
+  padding-top: 13px;
+  img {
+    width: 100px;
+  }
+  display: none;
+  float: left;
+}
+
+@include media-breakpoint-down(xs) {
+  .navbar-brand-btn {
+    display: none !important;
+  }
+  .navbar-brand-btn-small {
+    display: block !important;
+  }
+}

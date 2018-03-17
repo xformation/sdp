@@ -1,4 +1,4 @@
-<div class="page-nav">
+<!-- <div class="page-nav">
   <div class="page-breadcrumbs">
     <a class="breadcrumb-item active" href="/">
       <i class="fa fa-home"></i>
@@ -9,4 +9,29 @@
   </div>
 </div>
 
-<dashboard-search></dashboard-search>
+<dashboard-search></dashboard-search> -->
+
+
+<div class="navbar-inner">
+  <a class="navbar-brand-btn pointer" ng-click="ctrl.toggleSideMenu()">
+    <img class="navbar-logo-img" src="public/img/synectiks-logo.svg"></img>
+    <i class="fa fa-caret-down nav-caret-down"></i>
+    <i class="fa fa-chevron-left nav-chevron-left"></i>
+  </a>
+
+  <a class="navbar-brand-btn-small pointer" ng-click="ctrl.toggleSideMenuSmallBreakpoint()">
+    <img class="navbar-logo-img" src="public/img/synectiks-logo.svg"></img>
+    <i class="fa fa-caret-down nav-caret-down"></i>
+    <i class="fa fa-chevron-left nav-chevron-left"></i>
+  </a>
+
+  <div class="pull-right nav-search-container">
+    <input class="nav-search-box" type="text" placeholder="Search" />
+    <a>
+      <i class="fa fa-bell"></i>
+    </a>
+    <a>
+      <i class="fa fa-cog"></i>
+    </a>
+  </div>
+</div>

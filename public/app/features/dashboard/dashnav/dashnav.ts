@@ -9,7 +9,15 @@ export class DashNavCtrl {
   titleTooltip: string;
 
   /** @ngInject */
-  constructor(private $scope, private dashboardSrv, private $location, public playlistSrv) {
+  constructor(
+    private $scope,
+    private $rootScope,
+    private dashboardSrv,
+    private $location,
+    public playlistSrv,
+    private contextSrv,
+    private $timeout
+  ) {
     appEvents.on('save-dashboard', this.saveDashboard.bind(this), $scope);
 
     if (this.dashboard.meta.isSnapshot) {
@@ -29,6 +37,19 @@ export class DashNavCtrl {
       search.editview = 'settings';
     }
     this.$location.search(search);
+  }
+
+  toggleSideMenu() {
+    this.contextSrv.toggleSideMenu();
+    appEvents.emit('toggle-sidemenu');
+
+    this.$timeout(() => {
+      this.$rootScope.$broadcast('render');
+    });
+  }
+
+  toggleSideMenuSmallBreakpoint() {
+    appEvents.emit('toggle-sidemenu-mobile');
   }
 
   close() {

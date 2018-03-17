@@ -1,24 +1,54 @@
-<a class="sidemenu__logo" ng-click="ctrl.toggleSideMenu()">
+<!-- <a class="sidemenu__logo" ng-click="ctrl.toggleSideMenu()">
 	<img src="public/img/grafana_icon.svg"></img>
 </a>
 
 <a class="sidemenu__logo_small_breakpoint" ng-click="ctrl.toggleSideMenuSmallBreakpoint()">
-  <i class="fa fa-bars"></i>
-  <span class="sidemenu__close"><i class="fa fa-times"></i>&nbsp;Close</span>
-</a>
+	<i class="fa fa-bars"></i>
+	<span class="sidemenu__close">
+		<i class="fa fa-times"></i>&nbsp;Close</span>
+</a> -->
 
 <div class="sidemenu__top">
-	<div ng-repeat="item in ::ctrl.mainLinks" class="sidemenu-item dropdown">
-		<a href="{{::item.url}}" class="sidemenu-link" target="{{::item.target}}">
+	<li class="sidemenu-org-section" ng-if="::ctrl.isSignedIn" class="dropdown">
+		<div class="sidemenu-org" href="profile">
+			<div class="sidemenu-avatar-container">
+				<a class="sidemenu-org-avatar">
+					<img ng-src="{{::ctrl.user.gravatarUrl}}">
+					<span class="sidemenu-org-avatar--missing">
+						<i class="fa fa-fw fa-user"></i>
+					</span>
+					<span class="sidemenu-org-user">{{::ctrl.user.name}}</span>
+				</a>
+			</div>
+			<div class="sidemenu-org-user-details">
+				<div class="sidemenu-org-user-detail">
+					<div>{{ctrl.user.info.projects}}</div>
+					<div>Projects</div>
+				</div>
+				<div class="sidemenu-org-user-detail">
+					<div>{{ctrl.user.info.billing}}</div>
+					<div>Billing</div>
+				</div>
+				<div class="sidemenu-org-user-detail">
+					<div>{{ctrl.user.info.resources}}</div>
+					<div>Resources</div>
+				</div>
+			</div>
+			<div class="message-user">
+				<button class="btn btn-default">Message</button>
+			</div>
+		</div>
+	</li>
+	<li ng-repeat="item in ::ctrl.mainLinks" class="dropdown sidemenu-item-container" ng-class='{"active":ctrl.currentUrl === item.url}'>
+		<a href="{{::item.url}}" class="sidemenu-item sidemenu-main-link" target="{{::item.target}}">
 			<span class="icon-circle sidemenu-icon">
 				<i class="{{::item.icon}}" ng-show="::item.icon"></i>
 				<img ng-src="{{::item.img}}" ng-show="::item.img">
 			</span>
+			<span class="sidemenu-item-text">{{::item.text}}</span>
+			<span class="fa fa-caret-right" ng-if="::item.children"></span>
 		</a>
-		<ul class="dropdown-menu dropdown-menu--sidemenu" role="menu" ng-if="::item.children">
-			<li class="side-menu-header">
-				<span class="sidemenu-item-text">{{::item.text}}</span>
-			</li>
+		<ul class="dropdown-menu" role="menu" ng-if="::item.children">
 			<li ng-repeat="child in ::item.children" ng-class="{divider: child.divider}">
 				<a href="{{::child.url}}">
 					<i class="{{::child.icon}}" ng-show="::child.icon"></i>
@@ -26,21 +56,18 @@
 				</a>
 			</li>
 		</ul>
-	</div>
+	</li>
+	<li ng-show="::!ctrl.isSignedIn" class="sidemenu-item-container">
+		<a href="{{ctrl.loginUrl}}" class="sidemenu-item sidemenu-main-link" target="_self">
+			<span class="icon-circle sidemenu-icon">
+				<i class="fa fa-fw fa-sign-in"></i>
+			</span>
+			<span class="sidemenu-item-text">Sign in</span>
+		</a>
+	</li>
 </div>
 
 <div class="sidemenu__bottom">
-	<div ng-show="::!ctrl.isSignedIn" class="sidemenu-item">
-		<a href="{{ctrl.loginUrl}}" class="sidemenu-link" target="_self">
-			<span class="icon-circle sidemenu-icon"><i class="fa fa-fw fa-sign-in"></i></span>
-		</a>
-		<ul class="dropdown-menu dropdown-menu--sidemenu" role="menu">
-			<li class="side-menu-header">
-				<span class="sidemenu-item-text">Sign In</span>
-			</li>
-		</ul>
-	</div>
-
 	<div ng-repeat="item in ::ctrl.bottomNav" class="sidemenu-item dropdown dropup">
 		<a href="{{::item.url}}" class="sidemenu-link" target="{{::item.target}}">
 			<span class="icon-circle sidemenu-icon">
@@ -55,7 +82,8 @@
 						<div class="sidemenu-org-switcher__org-name">{{ctrl.contextSrv.user.orgName}}</div>
 						<div class="sidemenu-org-switcher__org-current">Current Org:</div>
 					</div>
-					<div class="sidemenu-org-switcher__switch"><i class="fa fa-fw fa-random"></i>Switch</div>
+					<div class="sidemenu-org-switcher__switch">
+						<i class="fa fa-fw fa-random"></i>Switch</div>
 				</a>
 			</li>
 			<li ng-repeat="child in ::item.children" ng-class="{divider: child.divider}" ng-hide="::child.hideFromMenu">
@@ -70,4 +98,3 @@
 		</ul>
 	</div>
 </div>
-

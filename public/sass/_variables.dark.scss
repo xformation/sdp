@@ -370,3 +370,43 @@ $diff-json-changed-fg: $gray-5;
 $diff-json-changed-num: $text-color;
 
 $diff-json-icon: $gray-7;
+
+// Variables for new theme
+
+//Variables for sidebar
+$user-detail-font-color: #137fb9;
+$sidebar-background-color: #333d47;
+$sidebar-item-hover-background-color: #3371a5;
+$sidebar-item-border-color: #484f56;
+$sidebar-item-hover-border-color: #27292b;
+$sidebar-item-font-color: #afc1d2;
+$sidebar-item-hover-font-color: white;
+$sidebar-avatar-border-color: #425365;
+
+//Variables for top navigation bar
+$navbar-background-gradient: linear-gradient(to right, #51607d, #152036);
+$navbar-search-box-background-color: #536b97;
+
+//variables of body
+$body-background-gradient: linear-gradient(to right, #6886ab, #25375b);
+
+//variables for home page
+$home-panel-background-color: #333d47;
+$home-panel-header-border: 2px solid #6a727c;
+$home-resource-central-icon-color: #0064ba;
+$home-central-panel-border-color: #747b86;
+
+@mixin sidebar-item-hover-border() {
+  // border-image: linear-gradient(rgba(255,213,0,1) 0%, rgba(255,68,0,1) 99%, rgba(255,68,0,1) 100%);
+  // border-image-slice: 1;
+  // border-style: solid;
+  // border-top: 0;
+  // border-right: 0;
+  // border-bottom: 0;
+  border-right-width: 3px;
+  border-color: #65a1cb;
+}
+
+@mixin sidebar-item-border() {
+  border-right: 3px solid transparent;
+}

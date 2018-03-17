@@ -6,7 +6,20 @@ export class NavbarCtrl {
   model: NavModel;
 
   /** @ngInject */
-  constructor() {}
+  constructor(private $rootScope, private contextSrv, private $timeout) {}
+
+  toggleSideMenu() {
+    this.contextSrv.toggleSideMenu();
+    appEvents.emit('toggle-sidemenu');
+
+    this.$timeout(() => {
+      this.$rootScope.$broadcast('render');
+    });
+  }
+
+  toggleSideMenuSmallBreakpoint() {
+    appEvents.emit('toggle-sidemenu-mobile');
+  }
 
   showSearch() {
     appEvents.emit('show-dash-search');
