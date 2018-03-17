@@ -19,6 +19,7 @@ import angular from 'angular';
 import config from 'app/core/config';
 import _ from 'lodash';
 import moment from 'moment';
+import 'vendor/chart.js/dist/Chart.min.js';
 
 // add move to lodash for backward compatabiltiy
 _.move = function(array, fromIndex, toIndex) {

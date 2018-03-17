@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import coreModule from '../core_module';
+import $ from 'jquery';
 
 export function arrayJoin() {
   'use strict';
@@ -27,3 +28,47 @@ export function arrayJoin() {
 }
 
 coreModule.directive('arrayJoin', arrayJoin);
+
+function drawChart() {
+  return {
+    restrict: 'A',
+    scope: {
+      chartPoints: '=',
+      type: '@',
+      showLegends: '@',
+    },
+    controllerAs: 'ctrl',
+    link: function(scope, element) {
+      let Chart = window['Chart'];
+      let $canvas = $(element).find('canvas');
+      if (scope.chartPoints) {
+        let datasets = JSON.parse(scope.chartPoints);
+        let chart = new Chart($canvas[0], {
+          type: scope.type,
+          data: {
+            // labels:['a','b','c'],
+            datasets: datasets,
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+            legend: {
+              position: 'right',
+              display: scope.showLegends === 'true',
+            },
+          },
+        });
+        console.log(chart);
+      }
+    },
+  };
+}
+
+coreModule.directive('drawchart', drawChart);

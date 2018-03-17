@@ -1,0 +1,18 @@
+.services-container {
+  max-width: 100% !important;
+}
+.card-list-layout-list {
+  .service-subscribe {
+    float: right;
+    top: -23px;
+    position: relative;
+  }
+}
+
+.card-list-layout-grid {
+  .service-subscribe {
+    button {
+      width: 100%;
+    }
+  }
+}

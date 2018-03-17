@@ -1,0 +1,156 @@
+<navbar model="ctrl.navModel"></navbar>
+<div class="page-container home-container clear">
+    <div class="col-1 float-left">
+        <div class="home-panel margin-top-1 project-central-container">
+            <div class="home-panel-header">
+                Project Central
+            </div>
+            <div class="home-panel-body clear">
+                <div class="sub-column-1 float-left">
+                    <div class="chart-container" show-legends=true chart-points="ctrl.projectCentralData" type="bar" drawchart>
+                        <canvas id="project-central"></canvas>
+                    </div>
+                </div>
+                <div class="sub-column-2 project-central-details float-left">
+                    <div>
+                        <h6>Details</h6>
+                        <p>
+                            This is dummy text just to test the alignment. This is dummy text just to test the alignment. This is dummy text just to
+                            test the alignment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-panel margin-top-1 billing-central">
+            <div class="home-panel-header">
+                Billing Central
+            </div>
+            <div class="home-panel-body clear">
+                <div class="sub-column-1 float-left">
+                    <div class="cost-container clear">
+                        <div class="projectwise-cost">
+                            <a href="">
+                                <i class="fa fa-table"></i>
+                                <div>Projectwise Cost</div>
+                            </a>
+                        </div>
+                        <div class="overall-cost">
+                            <a href="">
+                                <i class="fa fa-bar-chart"></i>
+                                <div>Overall Cost</div>
+                            </a>
+                            <div class="overall-cost-value">$ 469,905</div>
+                        </div>
+                    </div>
+                    <div class="bar-chart-container" show-legends=true chart-points="ctrl.projectCentralData" type="bar" drawchart>
+                        <canvas></canvas>
+                    </div>
+                </div>
+                <div class="sub-column-2 float-left">
+                    <div class="line-chart-container" show-legends=false chart-points="ctrl.lineChartData" type="line" drawchart>
+                        <canvas></canvas>
+                    </div>
+                    <div class="line-chart-container" show-legends=false chart-points="ctrl.lineChartData" type="line" drawchart>
+                        <canvas></canvas>
+                    </div>
+                    <div class="line-chart-container" show-legends=false chart-points="ctrl.lineChartData" type="line" drawchart>
+                        <canvas></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="home-panel-footer">
+                <a>See complete billing</a>
+            </div>
+        </div>
+        <div class="home-panel margin-top-1 resource-central">
+            <div class="home-panel-header">
+                Resource Central
+            </div>
+            <div class="home-panel-body">
+                <div class="resource-container" ng-repeat="resource in ctrl.resourceData">
+                    <div class="icon-container">
+                        <div class="icon">
+                            <i class="fa fa-user-plus"></i>
+                        </div>
+                        <div class="resource-total">{{resource.total}}</div>
+                    </div>
+                    <div class="resource-title-container">
+                        <div class="resouce-title">
+                            {{resource.title}}
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer" style="clear: both;"></div>
+                <a class="btn btn-default hire-resource-button">Hire Resources</a>
+                <div class="spacer" style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="home-panel margin-top-1 recently-added-assets-central">
+            <div class="home-panel-header">
+                Recently Added Assets
+            </div>
+            <div class="home-panel-body">
+                <div class="assets-container" ng-repeat="asset in ctrl.recentAssets">
+                    <div class="column-2 float-left">
+                        <div class="asset-icon">
+                            <i class="fa fa-picture-o"></i>
+                        </div>
+                    </div>
+                    <div class="column-8 float-left">
+                        <div class="asset-title">{{asset.title}}</div>
+                        <div class="asset-author">{{asset.author}}</div>
+                    </div>
+                    <div class="column-2 float-left">
+                        <a class="asset-settings-link">
+                            <i class="fa fa-cog"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 float-left">
+        <div class="home-panel margin-top-1 available-resources-container">
+            <div class="home-panel-header">
+                Available Resources
+            </div>
+            <div class="home-panel-body">
+                <div class="resources-container clear" ng-repeat="resource in ctrl.availableResources">
+                    <div class="column-2 float-left">
+                        <div class="resource-image">
+                            <img ng-src="{{resource.image}}" />
+                        </div>
+                    </div>
+                    <div class="column-6 float-left">
+                        <div class="resource-name">{{resource.name}}</div>
+                        <div class="resource-position">{{resource.position}}</div>
+                    </div>
+                    <div class="column-4 float-left hire-container">
+                        <a class="btn btn-default btn-hire">
+                            <i class="fa fa-plus"></i> Hire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-panel margin-top-1 top-performing-resources-container">
+            <div class="home-panel-header">
+                Top Performing Resources
+            </div>
+            <div class="home-panel-body">
+                <div class="resources-container clear" ng-repeat="resource in ctrl.topPerformingAssets">
+                    <div class="column-2 float-left">
+                        <div class="resource-image">
+                            <img ng-src="{{resource.image}}" />
+                        </div>
+                    </div>
+                    <div class="column-6 float-left">
+                        <div class="resource-name">{{resource.name}}</div>
+                        <div class="resource-position">{{resource.position}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

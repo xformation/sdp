@@ -12,4 +12,8 @@ define([
   './admin/admin',
   './alerting/all',
   './styleguide/styleguide',
+  './subscription/all',
+  './services/all',
+  './workflow/all',
+  './home/all'
 ], function () {});

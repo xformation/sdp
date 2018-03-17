@@ -1,0 +1,66 @@
+.workflow-main-container {
+  max-width: 100% !important;
+  .navigation-step {
+    list-style: none;
+    height: 80px;
+    overflow-x: hidden;
+    .active-step {
+      background-color: #cc3900 !important;
+    }
+    > div {
+      display: inline-block;
+    }
+    > div:last-child {
+      i {
+        display: none;
+      }
+    }
+    li {
+      display: inline-block;
+      height: 100%;
+      background-color: #444;
+      color: white !important;
+      cursor: pointer;
+      padding: 2em 2em;
+    }
+    i {
+      margin-right: 5px;
+    }
+  }
+  .step-container {
+    margin-bottom: 20px;
+  }
+  .step-data-container {
+    .sub-steps-container {
+      padding-right: 0px;
+      .sub-steps {
+        list-style: none;
+        .sub-step {
+          cursor: pointer;
+          border-top: none;
+          height: 55px;
+          color: #406286;
+          padding-left: 7px;
+          padding-top: 13px;
+          border-bottom: 2px solid #d3d3d3;
+          font-size: 17px;
+          i {
+            position: relative;
+            color: #d3d3d3 !important;
+          }
+        }
+        .sub-step:first-child {
+          border-top: 2px solid #d3d3d3;
+        }
+        .sub-step.active {
+          background: #0b80ed;
+          color: #f0f0f0 !important;
+          cursor: auto;
+        }
+      }
+    }
+    .sub-step-data-container {
+      padding-left: 0px;
+    }
+  }
+}

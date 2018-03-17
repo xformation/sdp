@@ -1,0 +1,56 @@
+<navbar model="ctrl.navModel"></navbar>
+
+<div class="page-container services-container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Services</h1>
+            </div>
+        </div>
+        <div class="page-header-tabs">
+            <ul class="gf-tabs">
+                <li class="gf-tabs-item" ng-repeat="tab in ctrl.tabs" >
+                    <a class="gf-tabs-link" ng-click="ctrl.changeTab(tab)" ng-class="{active: ctrl.activeTabIndex === {{tab.tabIndex}}}">
+                        {{tab.label}}
+                    </a>
+                </li>
+            </ul>
+            </a>
+        </div>
+    </div>
+
+    <section class="card-section" layout-mode>
+        <div class='row'>
+            <div class='col-md-6 col-sm-6'>
+                <input ng-change="ctrl.onSearchService()" class="gf-form-input max-width-21" ng-model="ctrl.searchText" type='text' id='search-sub-text' placeholder="Search all services" />
+            </div>
+            <div class='col-md-6 col-sm-6'>
+                <layout-selector></layout-selector>
+            </div>
+        </div>
+        <ol class="card-list">
+            <li class="card-item-wrapper" ng-repeat="service in ctrl.activeServices">
+                <a class="card-item" href="">
+                    <div class="card-item-header">
+                        <div class="card-item-type">
+                            <i class="icon-gf icon-gf-panel"></i> {{service.category.type}}
+                        </div>
+                    </div>
+                    <div class="card-item-body">
+                        <figure class="card-item-figure">
+                            <img src="public/app/plugins/panel/alertlist/img/icn-singlestat-panel.svg">
+                        </figure>
+                        <div class="card-item-details">
+                            <div class="card-item-name">{{service.name}}</div>
+                            <div ng-if="service.createdBy" class="card-item-sub-name">By {{service.createdBy}}</div>
+                        </div>
+                    </div>
+                    <div class="service-subscribe">
+                        <button class="btn btn-danger" ng-click="ctrl.subscribe(service)">Subscribe</button>
+                    </div>
+                </a>
+            </li>
+        </ol>
+    </section>
+
+</div>

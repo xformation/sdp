@@ -35,6 +35,9 @@
     .sidemenu__bottom {
       display: block;
     }
+    .page-container {
+      margin-left: $side-menu-width;
+    }
   }
 }
 

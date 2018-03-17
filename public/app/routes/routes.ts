@@ -10,12 +10,12 @@ export function setupAngularRoutes($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $routeProvider
-    .when('/', {
-      templateUrl: 'public/app/partials/dashboard.html',
-      controller: 'LoadDashboardCtrl',
-      reloadOnSearch: false,
-      pageClass: 'page-dashboard',
-    })
+    // .when('/', {
+    //   templateUrl: 'public/app/partials/dashboard.html',
+    //   controller: 'LoadDashboardCtrl',
+    //   reloadOnSearch: false,
+    //   pageClass: 'page-dashboard',
+    // })
     .when('/d/:uid/:slug', {
       templateUrl: 'public/app/partials/dashboard.html',
       controller: 'LoadDashboardCtrl',
@@ -267,6 +267,26 @@ export function setupAngularRoutes($routeProvider, $locationProvider) {
     .when('/alerting/notification/:id/edit', {
       templateUrl: 'public/app/features/alerting/partials/notification_edit.html',
       controller: 'AlertNotificationEditCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/subscription', {
+      templateUrl: 'public/app/features/subscription/partials/subscription_list.html',
+      controller: 'SubscriptionListCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/workflow', {
+      templateUrl: 'public/app/features/workflow/partials/workflow.html',
+      controller: 'WorkflowCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/', {
+      templateUrl: 'public/app/features/home/partials/home.html',
+      controller: 'HomeCtrl',
+      controllerAs: 'ctrl',
+    })
+    .when('/services', {
+      templateUrl: 'public/app/features/services/partials/services_list.html',
+      controller: 'ServicesCtrl',
       controllerAs: 'ctrl',
     })
     .otherwise({

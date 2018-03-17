@@ -1,0 +1,36 @@
+.subscription-container {
+  max-width: 100% !important;
+  .project-room-container {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  .margin-left-10 {
+    margin-left: 10px;
+  }
+  .subscription-item-wrapper {
+    margin-bottom: 10px;
+    .subscription-item {
+      border: 1px solid #ababab;
+      .status-container {
+        height: 40px;
+        padding-top: 10px;
+        padding-left: 20px;
+      }
+      .info-header-container {
+        border-bottom: 1px solid #ababab;
+        .info-header {
+          padding-bottom: 14px;
+        }
+      }
+      .btn-sub-group {
+        width: 100%;
+        height: 50px;
+        margin: 10px 0px;
+      }
+      .subscription-item-figure {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

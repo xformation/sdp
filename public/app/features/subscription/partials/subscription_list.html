@@ -1,0 +1,78 @@
+<navbar model="ctrl.navModel"></navbar>
+
+<div class="page-container subscription-container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Your Subscriptions</h1>
+            </div>
+            <div class="col-md-6 gf-form">
+                <input class="gf-form-input max-width-21" ng-change="ctrl.onSearchSubscription()" ng-model="ctrl.searchText" type='text' id='search-sub-text' placeholder="Search all subscription" />
+                <button class='btn btn-success' id='search-subscription'>Search</button>
+            </div>
+        </div>
+        <div class="page-header-tabs">
+            <ul class="gf-tabs">
+                <li class="gf-tabs-item" ng-repeat="tab in ctrl.subscriptionType">
+                    <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.activeTabIndex === $index}">
+                        {{tab}}
+                    </a>
+                </li>
+            </ul>
+            </a>
+        </div>
+    </div>
+
+    <section class="card-section">
+        <div class="project-room-container">
+            <div class="gf-form">
+                <h5> Subscriptions placed in </h5>
+                <div class="gf-form-select-wrapper max-width-10 margin-left-10">
+                    <select class="input-small gf-form-input" ng-model="ctrl.subscriptionPlaced" ng-options="t for t in ['past 3 months', 'past 5 months', 'past 6 months']"
+                        ng-change="ctrl.onChangeSubscriptionPlaced()">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <ol class="card-list">
+            <li class="card-item-wrapper subscription-item-wrapper" ng-repeat="plugin in ctrl.activeSubscription">
+                <a class="card-item subscription-item">
+                    <div class="row info-header-container">
+                        <div class="col-md-3 info-header">
+                            Subscription Placed <br> {{plugin.subscribe_date}}
+                        </div>
+                        <div class="col-md-3 info-header">
+                            Total <br> {{plugin.total}}
+                        </div>
+                        <div class="col-md-3 info-header">
+                            Project Room <br> {{plugin.name}}
+                        </div>
+                        <div class="col-md-3 info-header">
+                            Subscription {{plugin.id}}
+                        </div>
+                    </div>
+                    <div class="row status-container">
+                        <b>{{plugin.status}} completion {{plugin.completion}} milestones achieved</b>
+                    </div>
+                    <div class="card-item-body">
+                        <div class="col-md-4">
+                            <img class="subscription-item-figure" src="{{plugin.url}}">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-item-details">
+                                <div class="card-item-name">{{plugin.name}}</div>
+                                <div class="card-item-sub-name">{{plugin.description}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class='btn btn-warning btn-sub-group' ng-click="ctrl.redirectToProjectRoom()">Project Room</button>
+                            <button class='btn btn-default btn-sub-group'>Request Cancellation</button>
+                            <button class='btn btn-default btn-sub-group'>Leave Feedback</button>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ol>
+    </section>
+
+</div>
