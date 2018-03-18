@@ -6,6 +6,7 @@
   width: $side-menu-width;
   z-index: $zindex-sidemenu;
   top: $navbarHeight;
+  height: calc(100% - 55px);
   a:focus {
     text-decoration: none;
   }
