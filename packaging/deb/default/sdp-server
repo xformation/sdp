@@ -1,0 +1,24 @@
+SDP_USER=sdp
+
+SDP_GROUP=sdp
+
+SDP_HOME=/usr/share/sdp
+
+LOG_DIR=/var/log/sdp
+
+DATA_DIR=/var/lib/sdp
+
+MAX_OPEN_FILES=10000
+
+CONF_DIR=/etc/sdp
+
+CONF_FILE=/etc/sdp/sdp.ini
+
+RESTART_ON_UPGRADE=true
+
+PLUGINS_DIR=/var/lib/sdp/plugins
+
+PROVISIONING_CFG_DIR=/etc/sdp/provisioning
+
+# Only used on systemd systems
+PID_FILE_DIR=/var/run/sdp
