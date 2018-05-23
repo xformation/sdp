@@ -3,7 +3,7 @@
   .navigation-step {
     list-style: none;
     height: 80px;
-    overflow-x: hidden;
+    min-width: 900px;
     .active-step {
       background-color: #cc3900 !important;
     }
@@ -29,10 +29,12 @@
   }
   .step-container {
     margin-bottom: 20px;
+    overflow: scroll;
   }
   .step-data-container {
     .sub-steps-container {
       padding-right: 0px;
+      width: 100%;
       .sub-steps {
         list-style: none;
         .sub-step {
@@ -62,5 +64,14 @@
     .sub-step-data-container {
       padding-left: 0px;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .sub-steps-container {
+    padding-right: 15px !important;
+  }
+  .sub-step-data-container {
+    padding-left: 15px !important;
   }
 }

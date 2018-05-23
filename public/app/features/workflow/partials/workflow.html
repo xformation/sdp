@@ -1,102 +1,103 @@
 <navbar model="ctrl.navModel"></navbar>
 
 <div class="page-container workflow-main-container">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>Workflow</h1>
-            </div>
-        </div>
-        <div class="page-header-tabs">
-            <ul class="gf-tabs">
-                <li class="gf-tabs-item" ng-repeat="tab in ctrl.tabs">
-                    <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.activeTabIndex === $index}">
-                            <i class="tab-icons {{tab.class}} tab-icons">
-                            </i>
-                            {{tab.label}}
-                        </a>
-                </li>
-            </ul>
-            </a>
-        </div>
+  <div class="page-header m-b-3">
+    <div class="row m-b-2">
+      <div class="col-md-6">
+        <h1>Workflow</h1>
+      </div>
     </div>
+    <div class="page-header-tabs">
+      <ul class="gf-tabs">
+        <li class="gf-tabs-item" ng-repeat="tab in ctrl.tabs">
+          <a class="gf-tabs-link" ng-click="ctrl.changeTab($index)" ng-class="{active: ctrl.activeTabIndex === $index}">
+            <i class="tab-icons {{tab.class}} tab-icons">
+            </i>
+            {{tab.label}}
+          </a>
+        </li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
 
-    <section class="card-section" ng-if="ctrl.isStepsAvailable">
-        <div class="row step-container">
-            <div class="col-md-12">
-                <ul class="navigation-step">
-                    <div ng-repeat="stepOverview in ctrl.activeTabData.steps">
-                        <li ng-class="{'active-step':ctrl.activeStepIndex === $index}" ng-click="ctrl.changeStep($index)">
-                            {{stepOverview.step}}
-                        </li>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                </ul>
-            </div>
+  <section class="card-section" ng-if="ctrl.isStepsAvailable">
+    <div class="step-container m-b-2">
+      <ul class="navigation-step">
+        <div ng-repeat="stepOverview in ctrl.activeTabData.steps">
+          <li ng-class="{'active-step':ctrl.activeStepIndex === $index}" ng-click="ctrl.changeStep($index)">
+            {{stepOverview.step}}
+          </li>
+          <i class="fa fa-arrow-right"></i>
         </div>
-        <div class="row step-data-container" ng-if="!ctrl.activeStepData.isCompleted">
-            <div class="col-md-3 sub-steps-container">
-                <div class="step-title">
-                    <h3>
-                        {{ctrl.activeStepData.step}}
-                    </h3>
-                </div>
-                <div>
-                    <ul class="sub-steps">
-                        <li ng-class="{'active':ctrl.activeSubstepIndex === $index}" ng-click="ctrl.changeSubstep($index)" class="sub-step" ng-repeat="substep in ctrl.substeps">
-                            <i class="fa fa-play-circle-o"></i> {{substep.step}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-9 sub-step-data-container">
-                <div class="aitdiv" style="background: white;padding: 1.2em 3em;border: 0.5em solid #0b80ed;">
-                    <h1 style="color:black;margin-top: -0.3em">{{ctrl.activeSubstepData.details.title}}<span style="position: relative;
-                       left: 29em;font-size: 0.5em;"><i class="fa fa-list-ol" aria-hidden="true"></i>Instructions</span></h1>
-                    <p style="color:black;">Optionally <strong>Complete Step </strong>to mark this as complete and advance the workflow to the next
-                        step.
-                    </p>
-                    <div class="checkbox">
-                        <label style="color: #222222 !important">
-                            <input type="checkbox">  Enter time spent
-                        </label>
-                    </div>
-                    <form style="background-color:#f0f0f0; padding: 4em 4em; color: #222222 !important;">
-                        <p>Enter the time it took to complete this step in either minutes or hours.
-                        </p>
-                        <div class="checkbox">
-                            <label style="color: #222222 !important">Time Spent unit</label>
-                            <label style="display:inline-block;color: #222222 !important">
-                                <input type="checkbox"> Hour
-                            </label>
-                            <label style="display:inline-block;margin: 0em 3em; color: #222222 !important">
-                                <input type="checkbox"> Minute
-                            </label>
-                        </div>
-                        <br>
-                        <span style="color: #222222 !important">Elapse Time </span>
-                        <input class="form-control" type="number" style="width:240px; margin: 0em 3em;">
-                        <fieldset>
-                            <div class="checkbox">
-                                <label style="margin: 2em 0em;">
-                                    <input type="checkbox"> Send additional email notifications
-                                </label>
-                            </div>
-                        </fieldset>
-                        <button class="btn btn-primary" type="button" style="color:#ffffff !important;">
-                            Complete Step
-                       </button>
-                    </form>
-                </div>
-            </div>
+      </ul>
+    </div>
+    <div class="row step-data-container" ng-if="!ctrl.activeStepData.isCompleted">
+      <div class="col-md-3 col-sm-12 sub-steps-container m-b-2">
+        <div class="step-title">
+          <h3>
+            {{ctrl.activeStepData.step}}
+          </h3>
         </div>
-        <div class="row" ng-if="ctrl.activeStepData.isCompleted">
-            <div class="col-md-12">
-                {{ctrl.activeStepData.step}} completed.
-            </div>
+        <div>
+          <ul class="sub-steps">
+            <li ng-class="{'active':ctrl.activeSubstepIndex === $index}" ng-click="ctrl.changeSubstep($index)" class="sub-step" ng-repeat="substep in ctrl.substeps">
+              <i class="fa fa-play-circle-o"></i> {{substep.step}}
+            </li>
+          </ul>
         </div>
-    </section>
-    <section class="content-data">
-        {{ctrl.activeTabData.content}}
-    </section>
+      </div>
+      <div class="col-md-9 col-sm-12 sub-step-data-container">
+        <div class="aitdiv" style="background: white;padding: 1.2em 3em;border: 0.5em solid #0b80ed;">
+          <h1 style="color:black;margin-top: -0.3em">{{ctrl.activeSubstepData.details.title}}
+            <span style="position: relative;
+                       left: 29em;font-size: 0.5em;">
+              <i class="fa fa-list-ol" aria-hidden="true"></i>Instructions</span>
+          </h1>
+          <p style="color:black;">Optionally
+            <strong>Complete Step </strong>to mark this as complete and advance the workflow to the next step.
+          </p>
+          <div class="checkbox">
+            <label style="color: #222222 !important">
+              <input type="checkbox"> Enter time spent
+            </label>
+          </div>
+          <form style="background-color:#f0f0f0; padding: 4em 4em; color: #222222 !important;">
+            <p>Enter the time it took to complete this step in either minutes or hours.
+            </p>
+            <div class="checkbox">
+              <label style="color: #222222 !important">Time Spent unit</label>
+              <label style="display:inline-block;color: #222222 !important">
+                <input type="checkbox"> Hour
+              </label>
+              <label style="display:inline-block;margin: 0em 3em; color: #222222 !important">
+                <input type="checkbox"> Minute
+              </label>
+            </div>
+            <br>
+            <span style="color: #222222 !important">Elapse Time </span>
+            <input class="form-control" type="number" style="width:240px; margin: 0em 3em;">
+            <fieldset>
+              <div class="checkbox">
+                <label style="margin: 2em 0em;">
+                  <input type="checkbox"> Send additional email notifications
+                </label>
+              </div>
+            </fieldset>
+            <button class="btn btn-primary" type="button" style="color:#ffffff !important;">
+              Complete Step
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-if="ctrl.activeStepData.isCompleted">
+      <div class="col-md-12">
+        {{ctrl.activeStepData.step}} completed.
+      </div>
+    </div>
+  </section>
+  <section class="content-data">
+    {{ctrl.activeTabData.content}}
+  </section>
 </div>

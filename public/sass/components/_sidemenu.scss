@@ -4,7 +4,7 @@
   // flex-flow: column;
   // flex-direction: column;
   width: $side-menu-width;
-  z-index: $zindex-sidemenu;
+  z-index: -1;
   top: $navbarHeight;
   height: calc(100% - 55px);
   a:focus {
@@ -31,6 +31,7 @@
   .sidemenu-open {
     .sidemenu {
       background: $sidebar-background-color;
+      z-index: $zindex-sidemenu;
     }
     .sidemenu__top,
     .sidemenu__bottom {
